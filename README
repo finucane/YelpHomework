@@ -1,0 +1,22 @@
+this is just one simple algorithm so to make it clear just do it in one blob of procedural code. with some helping objects.
+ 
+ i wrote 2 unit tests just as an example, i read the apple docs and know how to do unit tests now for ios/osx. of course i never did
+ them before. they are actually sort of a good idea.
+ 
+ the approach is we pick a window size (in characters) and slide a window across the document word-by-word, keeping track of how many
+ matches the window has as it goes along. when we've scanned the whole document we go back to the window position that had the most matches and
+ print out the window from there. whitespace information is thrown away when the snippet is printed, in other words if the document had
+ lots of whitespace formatting or whatever, that's lost.
+ 
+ YPSnippet is the window.
+ YPWord is a word, able to deal with punctuation and matching and emitting the highlighting.
+ 
+ matching is case insenstive, and in the "OR" sense, because that's what the
+ example, http://www.yelp.com/search?find_desc=deep+dish+pizza&find_loc=sf. seems to do.
+ 
+ "insist" is my own assertion macro, see "insist.h".
+ 
+ to break ties snippets that are longer are selected over snippets that are shorter and snippets earlier on are selected over laters ones.
+ 
+ if no matches at all are found, the snippet is just the start of the document.
+ 
